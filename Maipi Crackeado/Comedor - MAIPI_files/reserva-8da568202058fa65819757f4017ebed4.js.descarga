@@ -1,0 +1,640 @@
+Vue.component("multiselect", window.VueMultiselect.default);
+Vue.component("date-picker", window.VueBootstrapDatetimePicker);
+
+new Vue({
+    el: '#reservaVue',
+    data: {
+        // datosAlumno: [],
+        servicioDisponibles: [],
+        servicios: [],
+        recargas: [],
+        consumos: [],
+        inasistencias: [],
+        tiposAbonos: ['ABONO', 'ABONO_POS', 'ABONO_IZIPAY', 'ABONO_TRASLADO'],
+        servicio: {},
+        AlumnoTicketBean: {postergado: false},
+        ticketSelect: {},
+        saldoDisponible: '',
+        ocultar: false,
+        visualizar: false,
+        consumoSelected: {},
+        devolverModal: VUE_MODAL.structFormAjax({
+            id: "id-modal-devolver",
+            okbtn: "Si, anular reserva",
+            okclass: "btn-danger",
+            form: "id-form-devolver"
+        }),
+        configConfirmAction: VUE_MODAL.structConfirm({
+            id: "id-modal-confirm"
+        }),
+        postergarModal: {
+            id: 'postergarModal',
+            header: true,
+            title: 'Postergar Almuerzo',
+            okbtn: 'Postergar',
+            showaccept: true
+        },
+        configDateStd: {
+            format: 'HH:mm',
+            locale: 'es'
+        },
+        horaPostergado: "",
+        modalVisualizar: "",
+        formRecarga: "id-form-recarga-online",
+        resumen: null,
+        becado: null,
+        clave: '',
+        solicitandoToken: false,
+        config: JSON.parse(configJson),
+        alumno: JSON.parse(alumnoJson),
+        repintar: repintar,
+        recargaRpta: JSON.parse(recargaRptaJson),
+        recargaOnline: {
+            importe: null,
+            email: null,
+            celular: null,
+            nombreCliente: null
+        },
+        autorizacion: {
+            id: null,
+            year: null,
+            numero: null,
+            tokenIzipay: null
+        },
+        // menus programados
+        fechaMenu: null,
+        menusCargados: false,
+        fechasComedor: [],
+        menusFecha: [],
+        mapMenus: {},
+        // vars de websocket
+        stompClient: null
+    },
+
+    mounted() {
+        this.init();
+    },
+
+    methods: {
+        init() {
+            let $vue = this;
+            $vue.dataDisponibles();
+            $vue.dataAlumno();
+            $vue.loadInfoRecarga();
+            $vue.connectSocket();
+            $vue.connectSocketReserva();
+
+            if ($vue.repintar) {
+                let icono = $vue.recargaRpta.procesado ? "info" : "error";
+                swal({
+                    text: $vue.recargaRpta.mensaje,
+                    icon: icono,
+                    dangerMode: $vue.recargaRpta.procesado,
+                    button: {text: "Aceptar"}
+                });
+            }
+        },
+        showDevolver(item) {
+            let $vue = this;
+            if (item.id) {
+
+                $vue.ticketSelect = JSON.parse(JSON.stringify(item));
+                $vue.modalVisualizar = "devolver-modal";
+                $vue.$refs.devolverModal.open();
+
+                let form = document.getElementById($vue.devolverModal.form);
+                form.classList.remove('was-validated');
+
+            } else {
+                $vue.dataAlumno();
+                notify("Inténtelo de nuevo", "info");
+            }
+        },
+        devolver() {
+            let $vue = this;
+
+            let form = document.getElementById($vue.devolverModal.form);
+            form.classList.add('was-validated');
+            if (!form.checkValidity()) {
+                notify("Debe completar los datos obligatorios", "warning");
+                return;
+            }
+
+            let ticketSend = {
+                id: $vue.ticketSelect.id,
+                motivoOperacion: $vue.ticketSelect.motivoOperacion
+            };
+
+            myUtils.axios(VUE_AXIOS.structModalClose({
+                url: `/${rutaModulo}/devolverTicket`,
+                modal: $vue.$refs.devolverModal,
+                body: ticketSend
+            })).then(response => {
+                $vue.dataAlumno();
+                $vue.servicio = {};
+            });
+        },
+        dataAlumno() {
+            let $vue = this;
+
+            myUtils.axios(VUE_AXIOS.structGetData({
+                url: `/${rutaModulo}/infoOfertaComedor`
+            })).then(response => {
+                let res = response.data.data;
+                $vue.servicioDisponibles = res.serviciosDisponibles;
+                $vue.servicios = res.servicios;
+                $vue.saldoDisponible = res.saldoDisponible;
+                $vue.consumos = res.consumos;
+                $vue.recargas = res.recargas;
+                $vue.inasistencias = res.inasistencias;
+                $vue.visualizar = true;
+
+                $vue.loadReservasPendientes();
+            });
+        },
+        dataDisponibles() {
+            let $vue = this;
+
+            myUtils.axios(VUE_AXIOS.structGetData({
+                url: `/${rutaModulo}/resumenDisponible`
+            })).then(response => {
+                $vue.resumen = response.data.data;
+                $vue.becado = JSON.parse(JSON.stringify($vue.resumen.becado));
+            });
+        },
+        reservarServicio(item) {
+            let $vue = this;
+            let msg = `<h4 class='mb-3 text-primary'>¿Está seguro que desea reservar este servicio (${item.nombre}) del ${item.fechaDia}?</h4>`;
+            let ticketSend = {
+                tipoServicioComedor: {id: item.id},
+                controlVentaTramo: {id: item.controlTramo.id},
+                alumno: {id: $vue.alumno.id}
+            };
+
+            $vue.configConfirmAction = VUE_MODAL.structConfirm({
+                id: "id-modal-confirm",
+                message: msg,
+                okbtn: "Si, reservar",
+                okclass: "btn-primary",
+                okaction: () => {
+                    setTimeout(() =>
+                        myUtils.axios(VUE_AXIOS.structModalConfirm({
+                            url: `${rutaRestMiddle}/api/comedor/reservarTicket`,
+                            modal: $vue.$refs.modalConfirmAction,
+                            body: ticketSend,
+                            jwt: `${jwtMiddleware}`
+                        })).then(response => {
+                            $vue.servicio = {};
+                            item.procesando = true;
+                            notify(response.data.message, 'info');
+                            $vue.loadReservasPendientes();
+                        }), 2000);
+                }
+            });
+
+            $vue.$refs.modalConfirmAction.open();
+        },
+        loadReservasPendientes() {
+            let $vue = this;
+            const payload = {id: $vue.alumno.id};
+
+            myUtils.axios(VUE_AXIOS.structGetData({
+                url: `${rutaRestMiddle}/api/comedor/allPendientes`,
+                body: payload,
+                jwt: `${jwtMiddleware}`
+            })).then(response => {
+                let pendientes = response.data.data;
+                $vue.servicios.forEach(serv => {
+                    let pend = pendientes.find(p => p.key === serv.keyReserva);
+                    serv.procesando = false;
+                    if (pend) {
+                        serv.procesando = true;
+                    }
+                });
+            });
+        },
+        anularReserva(item) {
+            let $vue = this;
+            let msg = `<h4 class='mb-3 text-primary'>¿Está seguro que desea reservar este servicio (${item.nombre}) del ${item.fechaDia}?</h4>`;
+            let ticketSend = {
+                tipoServicioComedor: {id: item.id},
+                controlVentaTramo: {id: item.controlTramo.id}
+            };
+
+            $vue.configConfirmAction = VUE_MODAL.structConfirm({
+                id: "id-modal-confirm",
+                message: msg,
+                okbtn: "Si, reservar",
+                okclass: "btn-primary",
+                okaction: () => {
+                    myUtils.axios(VUE_AXIOS.structModalConfirm({
+                        url: `/${rutaModulo}/reservarTicket`,
+                        modal: $vue.$refs.modalConfirmAction,
+                        body: ticketSend
+                    })).then(response => {
+                        $vue.dataAlumno();
+                        $vue.servicio = {};
+                        notify(response.data.message, 'info');
+                    });
+                }
+            });
+
+            $vue.$refs.modalConfirmAction.open();
+        },
+        modalPostergar(consumo) {
+            let $vue = this;
+            $vue.consumoSelected = {};
+            $vue.consumoSelected = consumo;
+            $vue.consumoSelected.motivo = "";
+            console.log($vue.consumoSelected);
+            $vue.$refs.postergarModal.open();
+        },
+        savePostergar() {
+            let $vue = this;
+            var form = $("#formModal");
+            form.parsley().destroy();
+            form.parsley();
+            if (!form.parsley().validate()) {
+                return;
+            }
+            $vue.consumoSelected.horaPostergado = $vue.horaPostergado;
+            console.log($vue.consumoSelected);
+            var hoy = new moment();
+            var horaPost = moment.utc(hoy.format("YYYY-MM-DD") + ' ' + $vue.consumoSelected.horaPostergado, "YYYY-MM-DD  HH:mm");
+            var hoyFormat = moment.utc(hoy.format("YYYY-MM-DD") + ' ' + hoy.format("HH:mm"), "YYYY-MM-DD  HH:mm");
+
+            if (hoyFormat.isAfter(horaPost)) {
+                notify("Hora no valida", 'error');
+                return;
+            }
+            delete $vue.consumoSelected['numero'];
+            let bx = bootbox.confirm({
+                title: "<h4 class='mb-3 text-primary'>Postergación</h4>",
+                message: "¿Seguro que desea postergar su almuerzo?",
+                buttons: {
+                    cancel: {label: 'Cancelar'},
+                    confirm: {label: 'Aceptar'}
+                },
+                callback: function (result) {
+                    if (result) {
+                        $.ajax({
+                            method: 'POST',
+                            url: APP.url(`${rutaModulo}/postergarTicket`),
+                            data: {
+                                id: $vue.consumoSelected.id,
+                                horaPostergado: $vue.horaPostergado,
+                                motivo: $vue.consumoSelected.motivo,
+                            },
+                            success: function (response) {
+                                if (response.success) {
+                                    $vue.dataAlumno();
+                                    $vue.servicio = {};
+                                    $vue.$refs.postergarModal.close();
+                                    notify(response.message, 'info');
+                                } else {
+                                    notify(response.message, 'error');
+                                }
+                            }, error: function () {
+                                notify(MESSAGES.errorComunicacion, "error");
+                            }
+                        });
+                    }
+                }
+            });
+            bx.find(".bootbox-close-button").remove();
+        },
+
+        // metodos para el menu programado
+        loadFechasMenus() {
+            if (this.menusCargados) {
+                return;
+            }
+
+            myUtils.axios(VUE_AXIOS.structGetData({
+                url: `/${rutaModulo}/fechasMenus`
+            })).then(response => {
+                this.fechasComedor = response.data.data;
+                this.menusCargados = true;
+
+                if (this.fechasComedor.length > 0) {
+                    this.fechaMenu = this.fechasComedor[0];
+                    this.loadMenus(this.fechaMenu);
+                }
+            });
+
+        },
+        loadMenus(item) {
+            let previos = this.mapMenus[item.fecha];
+            if (previos !== undefined) {
+                this.menusFecha = previos;
+                return;
+            }
+
+            myUtils.axios(VUE_AXIOS.structGetData({
+                url: `/${rutaModulo}/menusProgramados`,
+                body: {fecha: item.fecha}
+            })).then(response => {
+                this.mapMenus[item.fecha] = response.data.data;
+                this.menusFecha = response.data.data;
+            });
+        },
+        hayVariosComponentes(item, detalles) {
+            let compos = detalles.filter(det => det.componenteMenu.id === item.componenteMenu.id);
+            return compos.length > 1;
+        },
+        classPlatoPrincipal(item) {
+            if (item.platoFondo) {
+                return "text-primary";
+            }
+            return "";
+        },
+        classHead(item) {
+            if (item.tipoServicioComedor.codigo === 'DESA') {
+                return "mt-1";
+            }
+            return "mt-4";
+        },
+        textoPlatillo(det) {
+            if (det.componenteMenu.nombre === det.platilloMenu.nombre) {
+                return "SI";
+            }
+            return det.platilloMenu.nombre;
+        },
+
+        // metodos ver operaciones
+        ocultarRow(item) {
+            if (item.tipoOperacion === "ANULA_ABONO") {
+                return false;
+            } else {
+                return true;
+            }
+        },
+        styleOperacion(item) {
+            let clazz = "";
+            if (this.tiposAbonos.includes(item.tipoOperacion) && item.anulado) {
+                clazz = "text-primary ";
+            } else if (item.tipoOperacion === "ANULA_ABONO") {
+                clazz = "text-primary ";
+            } else if (this.tiposAbonos.includes(item.tipoOperacion) && !item.anulado) {
+                clazz = "text-success ";
+            } else {
+                clazz = "text-danger text-right ";
+            }
+
+            if (item.anulado) {
+                clazz += "tachado";
+            }
+            return clazz;
+        },
+        styleImporte(item) {
+            if (this.tiposAbonos.includes(item.tipoOperacion) && item.anulado) {
+                return "text-primary tachado";
+            } else if (item.tipoOperacion === "ANULA_ABONO") {
+                return "text-primary ";
+            } else if (this.tiposAbonos.includes(item.tipoOperacion) && !item.anulado) {
+                return "text-success";
+            }
+            return "text-danger";
+        },
+        colspanAbono(item) {
+            if (['CONSUMO', 'CONSUMO_DIRECTO'].includes(item.tipoOperacion)) {
+                return 2;
+            }
+            return 1;
+        },
+        verRecibo(item) {
+            if (['CONSUMO', 'CONSUMO_DIRECTO'].includes(item.tipoOperacion)) {
+                return false;
+            }
+            return true;
+        },
+        textoAbono(item) {
+            if (['CONSUMO', 'CONSUMO_DIRECTO'].includes(item.tipoOperacion)) {
+                return item.tipoOperacionEnum.value.split(' ')[0] + ' ' +
+                        item.ticketComedor.tipoServicioComedor.nombre;
+            }
+            return item.tipoOperacionEnum.value;
+        },
+        textoRecibo(item) {
+            if (['CONSUMO', 'CONSUMO_DIRECTO'].includes(item.tipoOperacion)) {
+                return "";
+            }
+            return item.recibo;
+        },
+        signo(item) {
+            if (this.tiposAbonos.includes(item.tipoOperacion)) {
+                return "+";
+            }
+            return "-";
+        },
+
+        // metodos para recarga izipay
+        loadInfoRecarga() {
+            let $vue = this;
+
+            myUtils.axios(VUE_AXIOS.structGetData({
+                url: `/${rutaModulo}/infoRecargaComedor`
+            })).then(response => {
+                let data = response.data.data;
+                $vue.recargaOnline.celular = data.persona.celular;
+                $vue.recargaOnline.email = data.persona.email;
+                $vue.recargaOnline.nombreCliente = data.persona.nombreCompleto;
+                $vue.recargaOnline.importe = null;
+
+                myUtils.activarNumeric();
+            });
+        },
+        openIzipay() {
+            let $vue = this;
+            let form = $("#" + $vue.formRecarga);
+
+            form.parsley();
+            if (!form.parsley().validate()) {
+                return;
+            }
+
+            if ($vue.autorizacion.tokenIzipay) {
+                return;
+            }
+
+
+            $vue.clave = $vue.uuid();
+            $vue.solicitandoToken = true;
+            myUtils.axios(VUE_AXIOS.structGetData({
+                url: `/${rutaModulo}/createTokenOnline`,
+                body: $vue.recargaOnline,
+                rejectError: false
+            })).then(resp => {
+                $vue.solicitandoToken = false;
+                if (resp.data.success) {
+                    $vue.autorizacion = resp.data.data;
+                    KR.setFormToken($vue.autorizacion.tokenIzipay);
+                    var key = $vue.clave + "";
+
+                    setTimeout(() => {
+                        if (key === $vue.clave) {
+                            $vue.autorizacion.tokenIzipay = "";
+                            $vue.recargaOnline.importe = null;
+                        }
+                    }, 12 * 60 * 1000);
+                }
+            });
+        },
+        reiniciarIzipay() {
+            let $vue = this;
+            $vue.autorizacion.tokenIzipay = "";
+            $vue.autorizacion.importe = null;
+        },
+
+        // metodos sockets
+        connectSocket() {
+            let vue = this;
+            if (vue.stompClient && vue.stompClient.connected) {
+                console.log('Ya existe una conexión WebSocket activa.');
+                return;
+            }
+
+            const fullWsUrl = `${rutaWebsocket}/wsconnect`;
+            console.log(`Intentando conectar a: ${fullWsUrl}`);
+
+            const socket = new SockJS(fullWsUrl);
+            vue.stompClient = Stomp.over(socket);
+
+            vue.stompClient.connect({}, function (frame) {
+                console.log('La conexión WebSocket se ha establecido con éxito', frame);
+
+                vue.stompClient.subscribe('/broken/comedor/resumen', function (messageOutput) {
+                    var resumenNew = JSON.parse(messageOutput.body);
+                    console.log("fechaString=", resumenNew.fechaString, " servicio=", resumenNew.servicio, " uuid=", resumenNew.uuid)
+                    vue.resumen = resumenNew;
+
+                });
+            });
+
+            socket.onclose = (event) => {
+                console.log("Conexión websocket cerrada con el código " + event.code + " y la razón es " + event.reason);
+                setTimeout(() => vue.connectSocket(), 60 * 1000);
+            };
+            socket.onerror = (event) => {
+                console.log("Se ha producido un error" + event);
+            };
+        },
+        connectSocketReserva() {
+            let vue = this;
+            if (vue.stompClient && vue.stompClient.connected) {
+                console.log('Ya existe una conexión WebSocket activa.');
+                return;
+            }
+
+            const fullWsUrl = `${rutaWebsocket}/wsconnect`;
+            console.log(`Intentando conectar a: ${fullWsUrl}`);
+
+            const socket = new SockJS(fullWsUrl);
+            vue.stompClient = Stomp.over(socket);
+
+            vue.stompClient.connect({}, function (frame) {
+                console.log('La conexión WebSocket se ha establecido con éxito', frame);
+
+                vue.stompClient.subscribe(`/broken/comedor/respuestaReserva/${vue.alumno.id}`, function (messageOutput) {
+                    const rptaReserva = JSON.parse(messageOutput.body);
+                    console.log("success=", rptaReserva.success, "key=", rptaReserva.key, " servicio=", rptaReserva.servicio, " msg=", rptaReserva.message)
+
+                    const afectado = vue.servicios.find(serv => serv.keyReserva === rptaReserva.key);
+                    if (afectado) {
+                        afectado.procesando = false;
+                        afectado.reservado = rptaReserva.success;
+                        const icono = rptaReserva.success ? "info" : "error";
+
+                        swal({
+                            text: rptaReserva.message,
+                            icon: icono,
+                            dangerMode: rptaReserva.success,
+                            button: {text: "Aceptar"}
+                        });
+                    }
+                });
+            });
+
+            socket.onclose = (event) => {
+                console.log("Conexión websocket cerrada con el código " + event.code + " y la razón es " + event.reason);
+                setTimeout(() => vue.connectSocket(), 60 * 1000);
+            };
+            socket.onerror = (event) => {
+                console.log("Se ha producido un error" + event);
+            };
+        },
+
+        // metodos genericos
+        uuid() {
+            let cadena = '';
+            for (let i = 0; i < 4; i++) {
+                let guion = cadena === '' ? '' : '-';
+                cadena += guion + this.alphaNumber(8);
+            }
+            return cadena;
+        },
+        alphaNumber(ancho) {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+            let cadena = '';
+            for (let i = 0; i < ancho; i++) {
+                const idx = Math.floor(Math.random() * characters.length);
+                cadena += characters.charAt(idx);
+            }
+            return cadena;
+        },
+        commas(n) {
+            return myUtils.commas(n);
+        },
+        formatTime(dateString) {
+            if (!dateString || typeof dateString !== 'string') {
+                return "Entrada inválida";
+            }
+
+            const parts = dateString.split(' ');
+            if (parts.length !== 2) {
+                return "Fecha inválida";
+            }
+
+            const datePart = parts[0];
+            const timePart = parts[1];
+
+            const dateComponents = datePart.split('/');
+            if (dateComponents.length !== 3) {
+                return "Fecha inválida";
+            }
+
+            const timeComponents = timePart.split(':');
+            if (timeComponents.length !== 3) {
+                return "Hora inválida";
+            }
+
+            const day = parseInt(dateComponents[0], 10);
+            const month = parseInt(dateComponents[1], 10) - 1; // Ajuste para mes base 0
+            const year = parseInt(dateComponents[2], 10);
+            const hours = parseInt(timeComponents[0], 10);
+            const minutes = parseInt(timeComponents[1], 10);
+            const seconds = parseInt(timeComponents[2], 10);
+
+            if (isNaN(day) || isNaN(month) || isNaN(year) || isNaN(hours) || isNaN(minutes) || isNaN(seconds)) {
+                return "Hora inválida";
+            }
+
+            const dateObject = new Date(year, month, day, hours, minutes, seconds);
+
+            if (dateObject.getFullYear() !== year || dateObject.getMonth() !== month || dateObject.getDate() !== day) {
+                return "Fecha inválida";
+            }
+
+            let H = dateObject.getHours();
+            let M = dateObject.getMinutes();
+            const ampm = H >= 12 ? 'PM' : 'AM';
+
+            H = H % 12;
+            H = H ? H : 12; // La hora '0' debe ser '12'
+            M = M < 10 ? '0' + M : M; // Agrega un cero al inicio si es menor a 10
+
+            return `${H}:${M} ${ampm}`;
+        }
+    }
+});

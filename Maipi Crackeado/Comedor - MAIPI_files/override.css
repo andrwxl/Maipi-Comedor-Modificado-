@@ -1,0 +1,2001 @@
+.btn-link-out{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    border-left: 5px solid #fff;
+    background: #ff6161;
+    color: #fff !important;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 50px;
+    text-transform: uppercase;
+    padding: 0px 20px;
+    text-decoration: none!important;
+    transition-property: all;
+    transition-duration: 0.3s;
+    margin-top: 10px;
+}
+
+.btn-link-out:hover{
+    background: #619dff;
+    transition-property: all;
+    transition-duration: 0.3s;
+}
+
+.table-hover>tbody>tr:hover{
+    background-color: #c4d5f5!important;
+}
+
+.rowactive{
+    background: #a4d2ff;
+}
+
+
+/*list sin bordes*/
+
+.panel .list-group-item.list-unborder {
+    border-color: #fff;
+}
+
+/*list sin bordes*/
+.estado-green {
+    border-radius: 20px !important;
+    /*border: 1px solid green;*/
+    background-color: green;
+    color: white;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.estado-blue {
+    border-radius: 20px !important;
+    /*border: 1px solid green;*/
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.estado-red {
+    border-radius: 20px !important;
+    /*border: 1px solid #f1c40f;*/
+    background-color: #ff3333;
+    color: white;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.estado-gray {
+    border-radius: 20px !important;
+    /*border: 1px solid #f1c40f;*/
+    background-color: gray;
+    color: white;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.estado-dark {
+    border-radius: 20px !important;
+    /*border: 1px solid #f1c40f;*/
+    background-color: black;
+    color: white;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.estado-warning {
+    border-radius: 20px !important;
+    /*border: 1px solid #f1c40f;*/
+    background-color: #fda61c;
+    color: white;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+[v-cloak] {
+    display: none;
+}
+
+.div-foto {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+.img-foto {
+    height: 200px;
+    position: relative;
+    left: -100px;
+}
+
+.div-foto-list {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+}
+
+.img-foto-tempo {
+    width: 120px !important;
+    height: auto;
+    overflow: hidden;
+    max-width: none;
+}
+.swal2-popup {
+    font-size: 1.6rem !important;
+}
+
+.raptor-table-process-main {
+    position: absolute;
+    z-index: 1000;
+    top:50%;
+    left:50%;
+    width: 100%;
+    transform: translate(-50%,-50%);
+}
+
+.raptor-table-process-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0;
+    padding: 0;
+}
+
+.raptor-table-process-text {
+    font-size: 18px;
+    background-color: #2E4053;
+    font-weight: bold;
+    color: #F2F3F4;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* AÑADIR AL FINAL */
+.table thead > tr > th {
+    background: #eaeef1;
+}
+
+
+
+/* OTRAS AÑADIDURAS */
+
+
+.table .actions {
+    float: right;
+}
+.table .actions i {
+    cursor: pointer;
+    color: #63717e;
+}
+.table i:hover {
+    color: #414b53;
+}
+.table p {
+    margin: 0;
+}
+.nav-pills > li > a {
+    padding: 8px 15px;
+}
+
+.centered-pills ul.nav-pills > li > a {
+    padding: 10px 40px;
+    font-size: 14px;
+    margin-left: 15px;
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.centered-pills ul.nav-pills > li > a >  i {
+    margin-bottom: 5px;
+    font-size: 25px;
+    display: block;
+}
+
+.centered-pills {
+    text-align: center;
+}
+.centered-pills ul.nav-pills {
+    display: inline-block;
+}
+.centered-pills ul.nav-pills > li {
+    display: inline;
+}
+.centered-pills ul.nav-pills > li.active > a {
+    background: #1A2C47 !important;
+}
+* html .centered-pills ul.nav-pills {
+    display: inline;
+}
+*+html .centered-pills ul.nav-pills {
+    display: inline;
+}
+.subnav {
+    margin-top: 5px;
+}
+
+/*wizard */
+
+.wizard {
+    /*    margin: 20px auto;*/
+    background: #fff;
+}
+
+.wizard .nav-tabs {
+    position: relative;
+    margin: 40px auto;
+    margin-bottom: 0;
+    border-bottom-color: #e0e0e0;
+}
+
+.wizard > div.wizard-inner {
+    position: relative;
+}
+
+.connecting-line {
+    height: 2px;
+    background: #e0e0e0;
+    position: absolute;
+    width: 80%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+    z-index: 1;
+}
+
+.wizard .nav-tabs > li.active > a, .wizard .nav-tabs > li.active > a:hover, .wizard .nav-tabs > li.active > a:focus {
+    color: #555555;
+    cursor: default;
+    border: 0;
+    border-bottom-color: transparent;
+}
+
+span.round-tab {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    display: inline-block;
+    border-radius: 100px;
+    background: #fff;
+    border: 2px solid #e0e0e0;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    text-align: center;
+    font-size: 25px;
+}
+span.round-tab i{
+    color:#555555;
+}
+.wizard li.active span.round-tab {
+    background: #fff;
+    border: 2px solid #5bc0de;
+
+}
+.wizard li.active span.round-tab i{
+    color: #5bc0de;
+}
+
+span.round-tab:hover {
+    color: #333;
+    border: 2px solid #333;
+}
+
+.wizard .nav-tabs > li {
+    width: 16%;
+}
+
+.wizard li:after {
+    content: " ";
+    position: absolute;
+    left: 46%;
+    opacity: 0;
+    margin: 0 auto;
+    bottom: 0px;
+    border: 5px solid transparent;
+    border-bottom-color: #5bc0de;
+    transition: 0.1s ease-in-out;
+}
+
+.wizard li.active:after {
+    content: " ";
+    position: absolute;
+    left: 46%;
+    opacity: 1;
+    margin: 0 auto;
+    bottom: 0px;
+    border: 10px solid transparent;
+    border-bottom-color: #5bc0de;
+}
+
+.wizard .nav-tabs > li a {
+    width: 70px;
+    height: 70px;
+    margin: 20px auto;
+    border-radius: 100%;
+    padding: 0;
+}
+
+.wizard .nav-tabs > li a:hover {
+    background: transparent;
+}
+
+.wizard .tab-pane {
+    position: relative;
+    padding-top: 50px;
+}
+
+.wizard h3 {
+    margin-top: 0;
+}
+.step1 .row {
+    margin-bottom:10px;
+}
+.step_21 {
+    border :1px solid #eee;
+    border-radius:5px;
+    padding:10px;
+}
+.step33 {
+    border:1px solid #ccc;
+    border-radius:5px;
+    padding-left:10px;
+    margin-bottom:10px;
+}
+.dropselectsec {
+    width: 68%;
+    padding: 6px 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #333;
+    margin-left: 10px;
+    outline: none;
+    font-weight: normal;
+}
+.dropselectsec1 {
+    width: 74%;
+    padding: 6px 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #333;
+    margin-left: 10px;
+    outline: none;
+    font-weight: normal;
+}
+.mar_ned {
+    margin-bottom:10px;
+}
+.wdth {
+    width:25%;
+}
+.birthdrop {
+    padding: 6px 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #333;
+    margin-left: 10px;
+    width: 16%;
+    outline: 0;
+    font-weight: normal;
+}
+
+
+/* according menu */
+#accordion-container {
+    font-size:13px
+}
+.accordion-header {
+    font-size:13px;
+    background:#ebebeb;
+    margin:5px 0 0;
+    padding:7px 20px;
+    cursor:pointer;
+    color:#fff;
+    font-weight:400;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px
+}
+.unselect_img{
+    width:18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.active-header {
+    -moz-border-radius:5px 5px 0 0;
+    -webkit-border-radius:5px 5px 0 0;
+    border-radius:5px 5px 0 0;
+    background:#F53B27;
+}
+.active-header:after {
+    content:"\f068";
+    font-family:'FontAwesome';
+    float:right;
+    margin:5px;
+    font-weight:400
+}
+.inactive-header {
+    background:#333;
+}
+.inactive-header:after {
+    content:"\f067";
+    font-family:'FontAwesome';
+    float:right;
+    margin:4px 5px;
+    font-weight:400
+}
+.accordion-content {
+    display:none;
+    padding:20px;
+    background:#fff;
+    border:1px solid #ccc;
+    border-top:0;
+    -moz-border-radius:0 0 5px 5px;
+    -webkit-border-radius:0 0 5px 5px;
+    border-radius:0 0 5px 5px
+}
+.accordion-content a{
+    text-decoration:none;
+    color:#333;
+}
+.accordion-content td{
+    border-bottom:1px solid #dcdcdc;
+}
+
+.mydetails{
+    display: none;
+}
+
+
+
+@media( max-width : 585px ) {
+
+    .wizard {
+        width: 90%;
+        height: auto !important;
+    }
+
+    span.round-tab {
+        font-size: 16px;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .wizard .nav-tabs > li a {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .wizard li.active:after {
+        content: " ";
+        position: absolute;
+        left: 35%;
+    }
+}
+
+.form-fecha{
+    height: 55px;
+}
+
+.gray{
+    background:#ddd;
+}
+
+.avatar-links{
+    position: relative;
+    text-align: center;
+    line-height: 1;
+    justify-content: center;
+
+}
+
+.avatar-links img{
+    width: 65px;
+}
+
+.avatar-text{
+    float:left;
+    margin-right:15px;
+    background: #fff;
+    border-radius: 113px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    padding-top:10px;
+}
+
+.sub-categoria{
+    border-bottom:1px solid #ccc;
+    padding-bottom: 8px;
+}
+
+.notificacion{
+    font-size: 15px;
+}
+
+.btn-familiar{
+    color:#fff !important;
+}
+
+.evento-content{
+    margin-top: 21px;
+    margin-bottom: 21px;
+    border-bottom: 1px solid #f5f5f5;
+    margin-left: 0;
+    padding-bottom:14px;
+}
+
+.dropdown-menu{
+    width:230px;
+    margin-left:55px;
+}
+
+.dropdown-toggle{
+    cursor:pointer;
+}
+
+.dropdown-name{
+    position: relative;
+    top: 10px;
+    color:#fff;
+}
+
+.span-content{
+    width: 120px;
+    float: right;
+    position: relative;
+    top: -4px;
+    font-weight:600;
+    font-size: 14px;
+    line-height: 14px;
+}
+.box-height{
+    height: 55.5%;
+}
+
+.box-pagos{
+    background:#f5f5f5;
+}
+.text-pagos{
+    margin-top: 2.5rem;
+}
+
+.text-pagos-2 h3{
+    font-size:15px;
+    display:inline;
+}
+
+.pago-content{
+    background: #f5f5f5;
+    padding: 18px;
+    margin-top: 17px;
+}
+.pago-content-2{
+    padding: 18px;
+}
+
+.text-pagos span{
+    font-size:14px;
+}
+
+.pago-header{
+    padding: 20px 20px 0px 20px;
+}
+
+.btn-pagos{
+    color: #4c4c4c;
+    background: #f5f5f5;
+}
+
+.form-group{
+    float:left;
+    margin-right: 1rem;
+    width: 100%;
+}
+
+.icon-socioeconomico{
+    margin-top:20px;
+}
+
+.form-group img{
+    ;
+}
+
+.card-student h1{
+    font-size:25px;
+    margin-bottom:3px;
+}
+
+.card-student h2{
+    font-size:19px;
+    color:#22b66e;
+}
+
+.card-student h4{
+    font-size:15px;
+}
+
+.btn-eventos{
+    margin-top: 40px;
+}
+
+.box-links{
+    background: url(../images/briefcase.svg) 0 center no-repeat #f5f5f5;
+    overflow: hidden;
+    background-size: 85px 60px;
+}
+
+.box-links-2{
+    background: url(../images/development.svg) 0 center no-repeat #f5f5f5;
+    overflow: hidden;
+    background-size: 85px 60px;
+}
+
+.box-links a{
+    margin-left:65px;
+}
+
+.box-links-2 a{
+    margin-left:65px;
+}
+
+.box-bd{
+    height: 105px;
+}
+
+.box-icon{
+    font-size: 2rem;
+    width: 36px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 4px;
+    color:#dedfe0;
+}
+
+.text-info{
+    font-size:15px;
+    line-height: 20px;
+}
+
+.text-sp{
+    width:81px;
+}
+
+.text-facu{
+    width: 91px;
+}
+
+.header-ficha{
+    height: 56px;
+    margin-bottom: 2em;
+}
+
+.down-btn{
+    color:#8d8d8d;
+}
+
+.box-app{
+    padding: 25px;
+    background:url(../images/appbanner.png) 0 center no-repeat;
+    background-size: 100% 100%;
+}
+
+.b-body{
+    display: inline;
+}
+
+.text-app{
+    font-weight: 700;
+}
+
+.text-creditos{
+    padding: 2rem 2rem 0.7rem 2rem;
+}
+
+.text-pagos-2{
+    margin-top: 20px;
+}
+
+.text-creditos h5{
+    margin-bottom:2px;
+}
+
+.text-creditos h2{
+    margin:0;
+    padding-left: 20px;
+}
+
+.text-creditos span{
+    font-size: 12px;
+    margin-left: 4px;
+}
+
+span.text-student{
+    float:left;
+    margin-right:10px;
+}
+
+.btn-notas{
+    width: calc(100% - 220px);
+}
+
+.logout{
+    position:relative !important;
+}
+
+.ficha-sub-title{
+    margin-top:28px;
+}
+.div-foto-list {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+}
+
+.div-foto-alumno-list {
+    height: 120px;
+    margin: 5px;
+}
+
+.img-foto-list {
+    height: 120px;
+    position: relative;
+}
+
+.img-foto-tempo {
+    width: 120px !important;
+    height: auto;
+    overflow: hidden;
+    max-width: none;
+}
+
+.dropdown-left{
+    left: -107px !important;
+}
+
+/*parsely*/
+.parsley-errors-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-top: 6px;
+    font-size: 11px;
+    color: #E74C3C;
+}
+
+.parsley-error {
+    border-color: #E74C3C !important;
+}
+
+
+
+.slide-fade-enter-active {
+    transition: all .60s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-leave-active {
+
+}
+.slide-fade-enter, .slide-fade-leave-to{
+    opacity: 0;
+}
+
+.btn-check{
+    padding: 1rem 2rem;
+}
+
+.btn-n{
+    margin-right: 3rem;
+    border: none;
+    border-radius: 2px 2px 2px 2px;
+    padding: 1rem 1.3rem;
+    font-size: 14px;
+    background-color: #e6e5e5;
+    color: #252525;
+}
+
+.btn-n-active{
+    color: #fff !important;
+    background-color: #5a6268 !important;
+    border-color: #545b62 !important;
+}
+
+.img-circle-2{
+    object-fit: cover;
+    border-radius: 100%;
+    width: 120px;
+    height: 120px;
+}
+
+.acuerdo-responsive{
+    display: none;
+}
+
+
+@media (max-width: 768px) {
+    .col-sm-4.col-4-app{
+        max-width:73% !important;
+    }
+
+    .box-bd{
+        width: 338px;
+        height: 122px;
+        background: white;
+    }
+
+    .box-links{
+        width: 337px;
+    }
+
+    .box-links-2{
+        width: 337px;
+    }
+
+    table{
+        width:850px;
+    }
+
+    .btn-n{
+        margin-right: .5rem !important;
+    }
+
+}
+
+@media( max-width : 500px ){
+    table{
+        width:850px;
+    }
+
+    .wizard-icon{
+        font-size: 20px !important;
+    }
+
+    .wizard-icon-circle{
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .btn-n{
+        padding: 8px 10px !important;
+    }
+
+    .btn-check {
+        padding: .5rem 1rem !important;
+    }
+
+    .docente-web{
+        display:none;
+    }
+
+    .mydetails{
+        display: block;
+    }
+
+    .card-responsive{
+        width: 700px;
+    }
+}
+@media (max-width: 400px){
+    .wizard-icon-circle{
+        width: 35px !important;
+        height: 35px !important;
+
+    }
+
+    .btn-n{
+        margin-bottom: .5rem;
+    }
+
+    .btn-check{
+        display: contents;
+    }
+
+    .docente-photo{
+        margin-bottom: 5rem;
+        align-items: center;
+        display: inline-grid;
+        margin-left: 6rem;
+    }
+
+    .wizard-icon{
+        font-size: 16px !important;
+    }
+
+    .encuesta-title{
+        font-size: 20px !important;
+    }
+
+    .acuerdo{
+        display: none;
+    }
+
+    .acuerdo-responsive{
+        display: block;
+        margin-top: 10px;
+    }
+
+    .desacuerdo{
+        margin-bottom: 10px;
+        display: block;
+    }
+}
+
+@media(min-width:800){
+    .btn-n{
+        margin-right: .5rem !important;
+    }
+}
+
+/* width custum */
+.wd-1 {width: 1% ;}
+.wd-2 {width: 2% ;}
+.wd-3 {width: 3% ;}
+.wd-4 {width: 4% ;}
+.wd-5 {width: 5% ;}
+.wd-6 {width: 6% ;}
+.wd-7 {width: 7% ;}
+.wd-8 {width: 8% ;}
+.wd-9 {width: 9% ;}
+.wd-10 {width: 10% ;}
+.wd-11 {width: 11% ;}
+.wd-12 {width: 12% ;}
+.wd-13 {width: 13% ;}
+.wd-14 {width: 14% ;}
+.wd-15 {width: 15% ;}
+.wd-16 {width: 16% ;}
+.wd-17 {width: 17% ;}
+.wd-18 {width: 18% ;}
+.wd-19 {width: 19% ;}
+.wd-20 {width: 20% ;}
+.wd-21 {width: 21% ;}
+.wd-22 {width: 22% ;}
+.wd-23 {width: 23% ;}
+.wd-24 {width: 24% ;}
+.wd-25 {width: 25% ;}
+.wd-26 {width: 26% ;}
+.wd-27 {width: 27% ;}
+.wd-28 {width: 28% ;}
+.wd-29 {width: 29% ;}
+.wd-30 {width: 30% ;}
+.wd-31 {width: 31% ;}
+.wd-32 {width: 32% ;}
+.wd-33 {width: 33% ;}
+.wd-34 {width: 34% ;}
+.wd-35 {width: 35% ;}
+.wd-36 {width: 36% ;}
+.wd-37 {width: 37% ;}
+.wd-38 {width: 38% ;}
+.wd-39 {width: 39% ;}
+.wd-40 {width: 40% ;}
+.wd-41 {width: 41% ;}
+.wd-42 {width: 42% ;}
+.wd-43 {width: 43% ;}
+.wd-44 {width: 44% ;}
+.wd-45 {width: 45% ;}
+.wd-46 {width: 46% ;}
+.wd-47 {width: 47% ;}
+.wd-48 {width: 48% ;}
+.wd-49 {width: 49% ;}
+.wd-50 {width: 50% ;}
+.wd-51 {width: 51% ;}
+.wd-52 {width: 52% ;}
+.wd-53 {width: 53% ;}
+.wd-54 {width: 54% ;}
+.wd-55 {width: 55% ;}
+.wd-56 {width: 56% ;}
+.wd-57 {width: 57% ;}
+.wd-58 {width: 58% ;}
+.wd-59 {width: 59% ;}
+.wd-60 {width: 60% ;}
+.wd-61 {width: 61% ;}
+.wd-62 {width: 62% ;}
+.wd-63 {width: 63% ;}
+.wd-64 {width: 64% ;}
+.wd-65 {width: 65% ;}
+.wd-66 {width: 66% ;}
+.wd-67 {width: 67% ;}
+.wd-68 {width: 68% ;}
+.wd-69 {width: 69% ;}
+.wd-70 {width: 70% ;}
+.wd-71 {width: 71% ;}
+.wd-72 {width: 72% ;}
+.wd-73 {width: 73% ;}
+.wd-74 {width: 74% ;}
+.wd-75 {width: 75% ;}
+.wd-76 {width: 76% ;}
+.wd-77 {width: 77% ;}
+.wd-78 {width: 78% ;}
+.wd-79 {width: 79% ;}
+.wd-80 {width: 80% ;}
+.wd-81 {width: 81% ;}
+.wd-82 {width: 82% ;}
+.wd-83 {width: 83% ;}
+.wd-84 {width: 84% ;}
+.wd-85 {width: 85% ;}
+.wd-86 {width: 86% ;}
+.wd-87 {width: 87% ;}
+.wd-88 {width: 88% ;}
+.wd-89 {width: 89% ;}
+.wd-90 {width: 90% ;}
+.wd-91 {width: 91% ;}
+.wd-92 {width: 92% ;}
+.wd-93 {width: 93% ;}
+.wd-94 {width: 94% ;}
+.wd-95 {width: 95% ;}
+.wd-96 {width: 96% ;}
+.wd-97 {width: 97% ;}
+.wd-98 {width: 98% ;}
+.wd-99 {width: 99% ;}
+.wd-100 {width: 100% ;}
+
+
+.d-bold {
+    font-weight: 600;
+}
+
+.item-form-control {
+    border-color: #cbd5dd;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    font-size: 14px;
+    display: block;
+    width: 100%;
+}
+
+.item-form-textarea {
+    border-color: #cbd5dd;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    font-size: 14px;
+    min-height: 40px;
+    width: 100%;
+    display: block;
+    white-space: pre-line;
+}
+
+.item-form-control-color {
+    background-color: #F3F6F6;
+    color: #024282 !important;
+}
+
+.item-form-gray {
+    background-color: #F5F7F9;
+}
+
+.item-form-danger {
+    border-color: #F3584E !important;
+    background-color: #F5C2B4;
+}
+
+.odonto-image{
+    position: relative;
+    width: 90%;
+    height: 140px;
+    overflow: hidden;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.02);
+    /*border-right: none;*/
+}
+
+.canvas-odonto {
+    background-size: contain;
+    background-repeat: no-repeat
+}
+
+.odonto-fullscreen{
+    background: white;
+    z-index: 900;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+
+.odonto-image .overlay{
+    position: absolute;
+    width: 91%;
+    height: 100%;
+    overflow: hidden;
+    background-size: 100% auto!important;
+}
+
+.odonto-image .overlay.azul{
+    background: url(../images/odonto/corona_definitiva.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.azul{
+    background: url(../images/odonto/corona_definitiva_2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.corona_definitiva_cc{
+    background: url(../images/odonto/corona_definitiva_cc.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.corona_definitiva_cc{
+    background: url(../images/odonto/corona_definitiva_cc_2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.corona_definitiva_cf{
+    background: url(../images/odonto/corona_definitiva_cf.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.corona_definitiva_cf{
+    background: url(../images/odonto/corona_definitiva_cf_2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.corona_definitiva_ci{
+    background: url(../images/odonto/corona_definitiva_ci.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.corona_definitiva_ci{
+    background: url(../images/odonto/corona_definitiva_ci_2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.corona_definitiva_cmc{
+    background: url(../images/odonto/corona_definitiva_cmc.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.corona_definitiva_cmc{
+    background: url(../images/odonto/corona_definitiva_cmc_2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.corona_definitiva_cp{
+    background: url(../images/odonto/corona_definitiva_cp.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.corona_definitiva_cp{
+    background: url(../images/odonto/corona_definitiva_cp_2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.corona_definitiva_cv{
+    background: url(../images/odonto/corona_definitiva_cv.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.corona_definitiva_cv{
+    background: url(../images/odonto/corona_definitiva_cv_2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.corona_definitiva_cj{
+    background: url(../images/odonto/corona_definitiva_cj.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.corona_definitiva_cj{
+    background: url(../images/odonto/corona_definitiva_cj_2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.rojo{
+    background: url(../images/odonto/corona_temporal.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.rojo{
+    background: url(../images/odonto/corona_temporal_2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.clavija{
+    background: url(../images/odonto/clavija.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.clavija{
+    background: url(../images/odonto/clavija-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.cruz{
+    background: url(../images/odonto/cruz.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.cruz{
+    background: url(../images/odonto/cruz2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.over-2.fractura{
+    background: url(../images/odonto/linea.png) no-repeat center center;
+}
+
+.odonto-image .overlay.fractura{
+    background: url(../images/odonto/linea-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.rotado-der{
+    background: url(../images/odonto/rotado-der-2.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.rotado-der{
+    background: url(../images/odonto/rotado-der.png) no-repeat center center;
+}
+
+.odonto-image .overlay.rotado-iz{
+    background: url(../images/odonto/rotado-iz-2.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.rotado-iz{
+    background: url(../images/odonto/rotado-iz.png) no-repeat center center;
+}
+
+.odonto-image .overlay.remanente{
+    background: url(../images/odonto/remanente.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.remanente{
+    background: url(../images/odonto/remanente-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.flecha-arriba{
+    background: url(../images/odonto/flecha-arriba.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.flecha-arriba{
+    background: url(../images/odonto/flecha-arriba-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.flecha-abajo{
+    background: url(../images/odonto/flecha-abajo.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.flecha-abajo{
+    background: url(../images/odonto/flecha-abajo-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.desgaste_oclusal{
+    background: url(../images/odonto/desgaste_oclusal.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.desgaste_oclusal{
+    background: url(../images/odonto/desgaste_oclusal_2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.discromico{
+    background: url(../images/odonto/discromico.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.discromico{
+    background: url(../images/odonto/discromico_2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.ectopico{
+    background: url(../images/odonto/ectopico.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.ectopico{
+    background: url(../images/odonto/ectopico_2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.impactacion{
+    background: url(../images/odonto/impactacion.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.impactacion{
+    background: url(../images/odonto/impactacion_2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.sellante{
+    background: url(../images/odonto/sellante.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.sellante{
+    background: url(../images/odonto/sellante_2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.implante{
+    background: url(../images/odonto/implante.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.implante{
+    background: url(../images/odonto/implante_2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.macrodoncia{
+    background: url(../images/odonto/macrodoncia.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.macrodoncia{
+    background: url(../images/odonto/macrodoncia_2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.microdoncia{
+    background: url(../images/odonto/microdoncia.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.microdoncia{
+    background: url(../images/odonto/microdoncia_2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.migracion-der{
+    background: url(../images/odonto/migracion-der.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.migracion-der{
+    background: url(../images/odonto/migracion-der-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.migracion-izq{
+    background: url(../images/odonto/migracion-izq.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.migracion-izq{
+    background: url(../images/odonto/migracion-izq-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.movilidad{
+    background: url(../images/odonto/movilidad.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.movilidad{
+    background: url(../images/odonto/movilidad_2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.movilidad.M1{
+    background: url(../images/odonto/movilidad-M1.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.movilidad.M1{
+    background: url(../images/odonto/movilidad-M1-2.png) no-repeat center center;
+}
+
+
+.odonto-image .overlay.movilidad.M2{
+    background: url(../images/odonto/movilidad-M2.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.movilidad.M2{
+    background: url(../images/odonto/movilidad-M2-2.png) no-repeat center center;
+}
+
+
+.odonto-image .overlay.movilidad.M3{
+    background: url(../images/odonto/movilidad-M3.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.movilidad.M3{
+    background: url(../images/odonto/movilidad-M3-2.png) no-repeat center center;
+}
+
+
+.odonto-image .overlay.perno{
+    background: url(../images/odonto/perno.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.perno{
+    background: url(../images/odonto/perno-2.png) no-repeat center center;
+}
+
+
+.odonto-image .overlay.erupcion.up{
+    background: url(../images/odonto/erupcion-up.png) no-repeat center center;
+}
+.odonto-image .overlay.erupcion.down{
+    background: url(../images/odonto/erupcion-down.png) no-repeat center center;
+}
+
+
+.odonto-image .overlay.exodoncia{
+    background: url(../images/odonto/exodoncia.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.exodoncia{
+    background: url(../images/odonto/exodoncia_2.png) no-repeat center center;
+}
+
+
+.odonto-image .overlay.restauracion-temporal{
+    background: url(../images/odonto/RT-1.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.restauracion-temporal{
+    background: url(../images/odonto/RT-2.png) no-repeat center center;
+}
+
+
+.odonto-image .overlay.restauracion-am{
+    background: url(../images/odonto/restauracion-am.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.restauracion-am{
+    background: url(../images/odonto/restauracion-am-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.restauracion-r{
+    background: url(../images/odonto/restauracion-r.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.restauracion-r{
+    background: url(../images/odonto/restauracion-r-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.restauracion-iv{
+    background: url(../images/odonto/restauracion-iv.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.restauracion-iv{
+    background: url(../images/odonto/restauracion-iv-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.restauracion-im{
+    background: url(../images/odonto/restauracion-im.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.restauracion-im{
+    background: url(../images/odonto/restauracion-im-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.restauracion-ie{
+    background: url(../images/odonto/restauracion-ie.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.restauracion-ie{
+    background: url(../images/odonto/restauracion-ie-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.tratamiento-pulpar{
+    background: url(../images/odonto/tratamiento-pulpar.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.tratamiento-pulpar{
+    background: url(../images/odonto/tratamiento-pulpar-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.pulpar-tc{
+    background: url(../images/odonto/pulpar-tc.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.pulpar-tc{
+    background: url(../images/odonto/pulpar-tc-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.pulpar-pc{
+    background: url(../images/odonto/pulpar-pc.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.pulpar-pc{
+    background: url(../images/odonto/pulpar-pc-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.pulpar-pp{
+    background: url(../images/odonto/pulpar-pp.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.pulpar-pp{
+    background: url(../images/odonto/pulpar-pp-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.semi_impactacion{
+    background: url(../images/odonto/semi_impactacion.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.semi_impactacion{
+    background: url(../images/odonto/semi_impactacion_2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.supernumerario-izq{
+    background: url(../images/odonto/supernumerario-izq.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.supernumerario-izq{
+    background: url(../images/odonto/supernumerario-izq-2.png) no-repeat center center;
+}
+.odonto-image .overlay.supernumerario-der{
+    background: url(../images/odonto/supernumerario-der.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.supernumerario-der{
+    background: url(../images/odonto/supernumerario-der-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.bracket-izq{
+    background: url(../images/odonto/bracket-izq.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.bracket-izq{
+    background: url(../images/odonto/bracket-izq-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.bracket-center{
+    background: url(../images/odonto/bracket-center.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.bracket-center{
+    background: url(../images/odonto/bracket-center-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.bracket-der{
+    background: url(../images/odonto/bracket-der.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.bracket-der{
+    background: url(../images/odonto/bracket-der-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.protesis-fija-izq{
+    background: url(../images/odonto/protesis-fija-izq.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.protesis-fija-izq{
+    background: url(../images/odonto/protesis-fija-izq-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.protesis-fija-center{
+    background: url(../images/odonto/protesis-fija-center.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.protesis-fija-center{
+    background: url(../images/odonto/protesis-fija-center-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.protesis-fija-der{
+    background: url(../images/odonto/protesis-fija-der.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.protesis-fija-der{
+    background: url(../images/odonto/protesis-fija-der-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.protesis-removible-izq{
+    background: url(../images/odonto/protesis-removible-izq-2.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.protesis-removible-izq{
+    background: url(../images/odonto/protesis-removible-izq.png) no-repeat center center;
+}
+
+.odonto-image .overlay.protesis-removible-center{
+    background: url(../images/odonto/protesis-removible-center-2.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.protesis-removible-center{
+    background: url(../images/odonto/protesis-removible-center.png) no-repeat center center;
+}
+
+.odonto-image .overlay.protesis-removible-der{
+    background: url(../images/odonto/protesis-removible-der-2.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.protesis-removible-der{
+    background: url(../images/odonto/protesis-removible-der.png) no-repeat center center;
+}
+
+.odonto-image .overlay.protesis-total-izq{
+    background: url(../images/odonto/protesis-total-izq-2.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.protesis-total-izq{
+    background: url(../images/odonto/protesis-total-izq.png) no-repeat center center;
+}
+
+.odonto-image .overlay.protesis-total-center{
+    background: url(../images/odonto/protesis-total-center-2.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.protesis-total-center{
+    background: url(../images/odonto/protesis-total-center.png) no-repeat center center;
+}
+
+.odonto-image .overlay.protesis-total-der{
+    background: url(../images/odonto/protesis-total-der-2.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.protesis-total-der{
+    background: url(../images/odonto/protesis-total-der.png) no-repeat center center;
+}
+
+.odonto-image .overlay.endulo-izq{
+    background: url(../images/odonto/endulo-izq-2.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.endulo-izq{
+    background: url(../images/odonto/endulo-izq.png) no-repeat center center;
+}
+
+.odonto-image .overlay.endulo-center{
+    background: url(../images/odonto/endulo-center-2.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.endulo-center{
+    background: url(../images/odonto/endulo-center.png) no-repeat center center;
+}
+
+.odonto-image .overlay.endulo-der{
+    background: url(../images/odonto/endulo-der-2.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.endulo-der{
+    background: url(../images/odonto/endulo-der.png) no-repeat center center;
+}
+
+.odonto-image .overlay.orto-removible-izq{
+    background: url(../images/odonto/orto-removible-izq-2.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.orto-removible-izq{
+    background: url(../images/odonto/orto-removible-izq.png) no-repeat center center;
+}
+
+.odonto-image .overlay.orto-removible-center{
+    background: url(../images/odonto/orto-removible-center-2.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.orto-removible-center{
+    background: url(../images/odonto/orto-removible-center.png) no-repeat center center;
+}
+
+.odonto-image .overlay.orto-removible-der{
+    background: url(../images/odonto/orto-removible-der-2.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.orto-removible-der{
+    background: url(../images/odonto/orto-removible-der.png) no-repeat center center;
+}
+
+
+.odonto-image .overlay.diastema-izq{
+    background: url(../images/odonto/diastema-izq.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.diastema-izq{
+    background: url(../images/odonto/diastema-izq-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.diastema-der{
+    background: url(../images/odonto/diastema-der.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.diastema-der{
+    background: url(../images/odonto/diastema-der-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.transposicion-izq{
+    background: url(../images/odonto/transposicion-izq.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.transposicion-izq{
+    background: url(../images/odonto/transposicion-izq-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.transposicion-der{
+    background: url(../images/odonto/transposicion-der.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.transposicion-der{
+    background: url(../images/odonto/transposicion-der-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.geminacion-izq{
+    background: url(../images/odonto/geminacion-izq.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.geminacion-izq{
+    background: url(../images/odonto/geminacion-izq-2.png) no-repeat center center;
+}
+
+.odonto-image .overlay.geminacion-der{
+    background: url(../images/odonto/geminacion-der.png) no-repeat center center;
+}
+.odonto-image .overlay.over-2.geminacion-der{
+    background: url(../images/odonto/geminacion-der-2.png) no-repeat center center;
+}
+/*donto-image2*/
+
+.odonto-image2{
+    overflow: hidden;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.02);
+    /*border-right: none;*/
+}
+
+.odonto-image2 .overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-size: 80% auto!important;
+}
+
+.odonto-image3{
+    position: relative;
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+    text-align: center;
+    background: rgba(252, 252, 252, 0);
+    /*border-right: none;*/
+}
+.odonto-spacing{
+    width: 30px;
+    height: 140px;
+    overflow: hidden;
+    text-align: center;
+    background: rgba(252, 252, 252, 0);
+    /*border-right: none;*/
+}
+
+/*fin odontograma*/
+
+.odonto-wrapper{
+    width: 95%;
+    min-height: 20px;
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 50px 0 30px;
+}
+
+.odontograma-grid{
+    list-style: none;
+    width: 100%;
+    min-height: 20px;
+    overflow: hidden;
+    padding: 0;
+}
+
+.odontograma-grid li{
+    display: block;
+    position: relative;
+    float: left;
+    width: calc(6.25% - 4px);
+    margin: 0 2px;
+    margin-bottom: 25px;
+}
+
+.odonto-image{
+    position: relative;
+    width: 90%;
+    height: 140px;
+    overflow: hidden;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.02);
+    /*border-right: none;*/
+}
+
+li:nth-child(32) .odonto-image,
+li:nth-child(32) .odonto-items,
+li:nth-child(16) .odonto-image,
+li:nth-child(16) .odonto-items{
+    border-right: 1px solid rgba(0,0,0,0.3);
+}
+
+.odonto-image img{
+    display: block;
+    position: absolute;
+    width: 67%;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%)
+}
+
+.odonto-items{
+    position: relative;
+    width: 100%;
+    height: 67%;
+    overflow: hidden;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.3);
+    /*border-right: none;*/
+    border-top: none;
+    padding: 10px 0;
+}
+
+
+.odonto-image-show{
+    position: relative;
+    width: 55%;
+    height: 400px;
+    overflow: hidden;
+    text-align: start;
+    /*border-right: none;*/
+}
+
+li:nth-child(32) .odonto-image-show,
+li:nth-child(32) .odonto-items-show,
+li:nth-child(16) .odonto-image-show,
+li:nth-child(16) .odonto-items-show{
+    border-right: 1px solid rgba(0,0,0,0.3);
+}
+
+.odonto-image-show img{
+    display: block;
+    position: absolute;
+    width: 75%;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%)
+}
+
+.odonto-items-show{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.3);
+    /*border-right: none;*/
+    border-top: none;
+    padding: 10px 0;
+}
+
+.odonto-image-show .overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-size: 100% auto!important;
+}
+
+.canvas-odonto-show {
+    background-size: contain;
+    background-repeat: no-repeat
+}
+
+.odonto-items:first-child{
+    border-bottom: none;
+}
+
+
+.odonto-items:first-child{
+    border-top: 1px solid rgba(0,0,0,0.3);
+}
+
+p.state-1 .square:nth-child(2){
+    /*border: none;*/
+}
+
+.odonto-list{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+    width: 36px;
+    height: 36px;
+}
+
+.odonto-list p{
+    display: block;
+    position: relative;
+    width: 12px;
+    height: 12px;
+    border: 1px solid;
+    float: left;
+    margin: 0!important;
+    border-bottom: none;
+    border-right: none;
+    border-color:  rgba(0,0,0,0.3);
+}
+
+.odonto-list p:first-child{
+    /*    border-left: none;
+        border-top: none;*/
+    border-left: 1px solid rgba(0,0,0,0.3);
+    border-right: 1px solid rgba(0,0,0,0.3);
+    border-top: 1px solid rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+
+.odonto-list p:nth-child(3){
+    border-top: none;
+}
+
+.odonto-list p:nth-child(6){
+    border-right: 1px solid rgba(0,0,0,0.3);
+}
+
+
+.odonto-list p:nth-child(7){
+    border-left: none;
+}
+
+
+.odonto-list p:nth-child(8){
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+
+
+.odonto-list p.rojo{
+    background: #f65c5c;
+    /*border-color: #f65c5c!important;*/
+}
+
+
+.odonto-list p.negro{
+    background: #3b3b3b;
+    /*border-color: #3b3b3b!important;*/
+}
+
+
+.odonto-list p.azul{
+    background: #5ca1f6;
+    /*border-color: #5ca1f6!important;*/
+}
+
+
+.odonto-list p.verde{
+    background: #50a754;
+    /*border-color: #50a754!important;*/
+}
+
+
+/*
+   PROGRESS VUE
+*/
+.containerprogress{
+    width: 100%;
+    z-index: 1;
+    margin-top: 20px;
+}
+.progressvue{
+    counter-reset: step;
+}
+.progressvue li{
+    float: left;
+    width: 14.28%;
+    position: relative;
+    text-align: center;
+    list-style-type: none;
+}
+.progressvue li:before{
+    content:counter(step);
+    counter-increment: step;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #bebebe;
+    display: block;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    line-height: 27px;
+    background: white;
+    color: #bebebe;
+    text-align: center;
+    font-weight: bold;
+}
+.progressvue li:after{
+    content: '';
+    position: absolute;
+    width:100%;
+    height: 3px;
+    background: #979797;
+    top: 15px;
+    left: -50%;
+    z-index: -1;
+}
+.progressvue li.active:before{
+    border-color: #3aac5d;
+    background: #3aac5d;
+    color: white
+}
+.progressvue li.active:after{
+    background: #3aac5d;
+}
+.progressvue li.primary.active:before{
+    border-color: #3aac5d;
+    background: #3aac5d;
+    color: white
+}
+.progressvue li.primary.active:after{
+    background: #3aac5d;
+}
+.progressvue li.danger.active:before{
+    border-color: #ff4444;
+    background: #ff4444;
+    color: white
+}
+.progressvue li.danger.active:after{
+    background: #ff4444;
+}
+.progressvue li.success.active:before{
+    border-color: #00C851;
+    background: #00C851;
+    color: white
+}
+.progressvue li.success.active:after{
+    background: #00C851;
+}
+.progressvue li.warning.active:before{
+    border-color: #ffbb33;
+    background: #ffbb33;
+    color: white
+}
+.progressvue li.warning.active:after{
+    background: #ffbb33;
+}
+.progressvue li.info.active:before{
+    border-color: #33b5e5;
+    background: #33b5e5;
+    color: white
+}
+.progressvue li.info.active:after{
+    background: #33b5e5;
+}
+.progressvue li:first-child:after{
+    content: none;
+}
+.bold {
+    font-weight:bold;
+}
+
+
+.circle-recorrido {
+    display: inline-block;
+    border-radius: 50%;
+    min-width: 50px;
+    height: 50px;
+    overflow: hidden;
+    margin: 0 auto;
+    line-height: 50px;
+    /*                text-align: center;*/
+    font-size: 16px;
+    /*                margin-left: 49px;*/
+    text-indent: 0;
+    vertical-align: middle;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 2px;
+}
+
+.circle-recorrido.bgr-success {
+    background-color: #2ECC71;
+    color: #fff;
+}
+
+.circle-recorrido.bgr-primary {
+    background-color: #0275D8;
+    color: #fff;
+}
+
+.circle-recorrido.bgr-danger {
+    background-color: #E74C3C;
+    color: #fff;
+}
+
+.circle-recorrido.bgr-warning {
+    background-color: #F1B41E;
+    color: #fff;
+}
+
+.circle-recorrido.bgr-black {
+    background-color: #3C4043;
+    color: #fff;
+}
